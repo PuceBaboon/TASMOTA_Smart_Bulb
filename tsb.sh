@@ -129,7 +129,7 @@ Sequence(){
 ## it for any of the other colour commands.
 ##
 CMND="color";		## Default command.
-MBODY="MID_WHITE";	## Default colour (neutral white).
+MBODY="${MID_WHITE}";	## Default colour (neutral white).
 while getopts cdhnoswCDHNOSW0 INP
 do
 	case ${INP} in
