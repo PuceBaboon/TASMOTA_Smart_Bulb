@@ -28,6 +28,8 @@ MAROON="AA33FF0000";
 PINK="FF33AA0000";
 BLUE="33AAFF0000";
 GREEN="AAFF330000";
+## Add new colours to the beginning of the COL_SEQ list (to make
+## them easier to see when starting the sequencer).
 COL_SEQ="${TURQUOISE} ${MAROON} ${YELLOW} ${BLUE} ${PINK} ${GREEN}";
 
 
