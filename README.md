@@ -12,10 +12,10 @@ The script assumes that you have the Open Source MQTT package Mosquitto installe
 ## How do I use it?
 The script requires that you configure some information which is specific to your network and your smart bulb.  By default it does not require any username or password information (if your MQTT server requires a username and password then I assume that you already know how to add those into the Mosquitto command lines).
 
-YOU MUST configure at least the two variables BULB_ID and MQTT_SERV at the very top of the script for it to work.
+**YOU MUST** configure at least the two variables BULB_ID and MQTT_SERV at the very top of the script for it to work.
 
-. BULB_ID  --  This is the TASMOTA "Topic" identifier from the Main Menu->Configuration->Configure MQTT page.  Connect to your smart-bulb using the TASMOTA web interface.  Go to the "Configure MQTT" tab and look immediately below the "Password" line to find the "Topic" setting.  The input window will display something like "tasmota_%06X", but immediately above in the title line, you'll find your current setting displayed in paretheses.  The whole title line will look something like this:- "Topic = %topic% (tasmota_A2C9A4)" and in this case the current setting of "tasmota_A2C9A4" is what you need to set your BULB_ID variable to.
++ **BULB_ID  --**  This is the TASMOTA "Topic" identifier from the Main Menu->Configuration->Configure MQTT page.  Connect to your smart-bulb using the TASMOTA web interface.  Go to the "Configure MQTT" tab and look immediately below the "Password" line to find the "Topic" setting.  The input window will display something like "tasmota_%06X", but immediately above in the title line, you'll find your current setting displayed in paretheses.  The whole title line will look something like this:- "Topic = %topic% (tasmota_A2C9A4)" and in this case the current setting of "tasmota_A2C9A4" is what you need to set your BULB_ID variable to.
 
-. MQTT_SERV  --  This can be either the name or the IP address of the machine where your MQTT broker (server) process is running.  In either case it should be enclosed in double quotes (ie:- "192.168.1.10" or "my-local-mqtt" or "some.broker.com").
++ **MQTT_SERV  --**  This can be either the name or the IP address of the machine where your MQTT broker (server) process is running.  In either case it should be enclosed in double quotes (ie:- "192.168.1.10" or "my-local-mqtt" or "some.broker.com").
 
 
