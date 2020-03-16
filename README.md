@@ -14,7 +14,7 @@ The script requires that you configure some information which is specific to you
 
 **YOU MUST** configure at least the two variables BULB_ID and MQTT_SERV at the very top of the script for it to work.
 
-+ **BULB_ID  --**  This is the TASMOTA "Topic" identifier from the Main Menu->Configuration->Configure MQTT page.  Connect to your smart-bulb using the TASMOTA web interface.  Go to the "Configure MQTT" tab and look immediately below the "Password" line to find the "Topic" setting.  The input window will display something like "tasmota_%06X", but immediately above in the title line, you'll find your current setting displayed in paretheses.  The whole title line will look something like this:- "Topic = %topic% (tasmota_A2C9A4)" and in this case the current setting of "tasmota_A2C9A4" is what you need to set your BULB_ID variable to.
++ **BULB_ID  --**  This is the TASMOTA "Topic" identifier from the Main Menu->Configuration->Configure MQTT page.  Connect to your smart-bulb using the TASMOTA web interface.  Go to the "Configure MQTT" tab and look immediately below the "Password" line to find the "Topic" setting.  The input window will display something like "tasmota_%06X", but immediately above in the title line, you'll find your current setting displayed in parentheses.  The whole title line will look something like this:- "Topic = %topic% (tasmota_A2C9A4)" and in this case the current setting of "tasmota_A2C9A4" is what you need to set your BULB_ID variable to.
 
 + **MQTT_SERV  --**  This can be either the name or the IP address of the machine where your MQTT broker (server) process is running.  In either case it should be enclosed in double quotes (ie:- "192.168.1.10" or "my-local-mqtt" or "some.broker.com").
 
@@ -32,7 +32,7 @@ Other presets are called by using single letter arguments:-
 + -h  --  "H"elp.  Basically this command listing.
 
 ## Extending the sequencer colour range
-The colurs are in a table at the top of the file.  All you need to do to add a new colour is to add it (with a unique name) to that table.  The colour values are in the RRGGBBWWWW format, where each character represents a HEX number.  For example:- `YELLOW="FFAA330000"`.  Note that it's safer to use only the RGB LEDs when displaying colours.  To choose a colour, the easiest way is to use the sliders on the TASMOTA main menu to set a the RGB intensities, then go to the "console" window (from the main menu) to see what the RRGGBB numbers actually are.
+The colours are in a table at the top of the file.  All you need to do to add a new colour is to add it (with a unique name) to that table.  The colour values are in the RRGGBBWWWW format, where each character represents a HEX number.  For example:- `YELLOW="FFAA330000"`.  Note that it's safer to use only the RGB LEDs when displaying colours.  To choose a colour, the easiest way is to use the sliders on the TASMOTA main menu to set a the RGB intensities, then go to the "console" window (from the main menu) to see what the RRGGBB numbers actually are.
 
 The new colours you add to the table will also need to be added by name to the "COL_SEQ" (colour sequence) list variable, immediately below the table (ie:- `COL_SEQ="${YELLOW} ${RED}"`).  It's usually a good idea to add the new colours right at the beginning of the list, so that you can easily see that it is working when you start the sequencer.
 
