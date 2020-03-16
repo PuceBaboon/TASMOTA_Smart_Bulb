@@ -18,4 +18,17 @@ The script requires that you configure some information which is specific to you
 
 + **MQTT_SERV  --**  This can be either the name or the IP address of the machine where your MQTT broker (server) process is running.  In either case it should be enclosed in double quotes (ie:- "192.168.1.10" or "my-local-mqtt" or "some.broker.com").
 
+Once configured, you should immediately be able to communicate with your smart bulb.  Simply running "tsb.sh" with no options or arguments should result in the bulb turning on at full brightness, with a colour temperature mid-way between warm and cool.
+
+Other presets are called by using single letter arguments:-
+
++ -c  --  "C"ool white.  Switches on the WW LEDs in the bulb with a blue hue.
++ -w  --  "W"arm white.  Switches on the WW LEDs with a yellow hue.
++ -n  --  "N"eutral white.  Switches on the WW LEDs with the hue set mid-way between cool and warm.
++ -o  or -0  -- Switches all LEDs (RGB and WW) off.
++ -s  --  "S"equence.  Turns on various colour mixes of RGB for 2 seconds before fading to the next colour.
++ -d  --  "D"ebug.  Fairly quiet debug output.
++ -D  --  "D"EBUG.  Very verbose debug output.
++ -h  --  "H"elp.  Basically this command listing.
+
 
