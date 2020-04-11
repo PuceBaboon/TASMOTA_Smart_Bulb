@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-##   $Id: tsb.sh,v 1.1 2020/03/15 23:42:37 gaijin Exp $
+##   $Id: tsb.sh,v 1.2 2020/04/11 06:01:35 gaijin Exp $
 ##
 ##        TASMOTA Smart Bulb control program
 ##
@@ -15,6 +15,7 @@ export PATH=/bin:/usr/bin;
 BULB_ID="YOUR-TASMOTA-TOPIC";		##  -- SET YOUR TASMOTA TOPIC NAME HERE  --
 MQTT_SERV="YOUR-MQTT-SERVER";		##  -- SET YOUR MQTT SERVER NAME/IP HERE  --
 SYSLOG_SERV="YOUR-SYSLOG-SERVER";	##  -- SET YOUR SYSLOG SERVER NAME/IP HERE  --
+
 
 SLPTM=2;				## Sequence delay time (in seconds).
 
@@ -37,9 +38,8 @@ COL_SEQ="${TURQUOISE} ${MAROON} ${YELLOW} ${BLUE} ${PINK} ${GREEN}";
 
 [ -z "${MQTT_SERV}" -o "YOUR-MQTT-SERVER" = "${MQTT_SERV}" \
 	-o -z "${BULB_ID}" -o "YOUR-TASMOTA-TOPIC" = "${BULB_ID}" ] && \
-	printf "\n\t==INFO==    You MUST set BULB_ID, MQTT_SERV variables for your network.\n\n" && \
+	printf "\n\t==INFO==    You MUST set the BULB_ID and MQTT_SERV variables for your network.\n\n" && \
 	exit 1;
-
 
 NAME=`basename ${0}`;				## Used by syslog.
 MQP="/usr/bin/mosquitto_pub -h ${MQTT_SERV}";
@@ -55,6 +55,7 @@ Totty(){
 ## Syslog messages to remote machine.
 Log(){
 	if [ -z "${SYSLOG_SERV}" -o "YOUR-SYSLOG-SERVER" = "${SYSLOG_SERV}" ]; then
+
 		logger --stderr "${NAME}: ${*}";
 	else
 		logger --server ${SYSLOG_SERV} --stderr "${NAME}: ${*}";
@@ -85,6 +86,7 @@ Options are:-
 	-n		- Neutral white (default).
 	-w		- Warm white.
 	-o or -0	- Turn off.
+	-s		- Colour Sequence (<CTL>C to stop).
 	-d		- Debug (quiet).
 	-D		- DEBUG (noisy).
 	-h		- Help (this text).
@@ -113,6 +115,7 @@ b_cmnd(){
 
 
 Sequence(){
+	trap 'b_cmnd "color" "000000FAFA" && exit 0' 2 3 15;
 	b_cmnd "fade" "1";		## Enable fading.
 	b_cmnd "power" "on";		## Power on before starting.
 	b_cmnd "color" "0000000000";	## Zero-out colours.
