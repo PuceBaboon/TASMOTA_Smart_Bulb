@@ -34,5 +34,5 @@ Other presets are called by using single letter arguments:-
 ## Extending the sequencer colour range
 The colours are in a table at the top of the file.  All you need to do to add a new colour is to add it (with a unique name) to that table.  The colour values are in the RRGGBBWWWW format, where each character represents a HEX number.  For example:- `YELLOW="FFAA330000"`.  Note that it's safer to use only the RGB LEDs when displaying colours.  To choose a colour, the easiest way is to use the sliders on the TASMOTA main menu to set a the RGB intensities, then go to the "console" window (from the main menu) to see what the RRGGBB numbers actually are.
 
-The new colours you add to the table will also need to be added by name to the "COL_SEQ" (colour sequence) list variable, immediately below the table (ie:- `COL_SEQ="${YELLOW} ${RED}"`).  It's usually a good idea to add the new colours right at the beginning of the list, so that you can easily see that it is working when you start the sequencer.
+The new colours you add to the table will also need to be added by name to the "COL_SEQ" (colour sequence) list variable, immediately below the table (ie:- `COL_SEQ="${YELLOW} ${RED}"`).  It's usually a good idea to add the new colours right at the beginning of the list, so that you can easily see that it works when you start the sequencer.
 
